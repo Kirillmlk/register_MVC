@@ -1,6 +1,6 @@
 <?php
 require_once "vendor/autoload.php";
-require 'APP/Database.php';
+
 use APP\Database;
 
 

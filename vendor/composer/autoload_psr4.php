@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Kirill\\RegMvc\\' => array($baseDir . '/src'),
+    'APP\\' => array($baseDir . '/app'),
 );
