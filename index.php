@@ -1,21 +1,15 @@
 <?php
 require_once "vendor/autoload.php";
 
-use APP\Sessions;
+use APP\controllers\authController;
+use APP\controllers\indexControllers;
+use APP\Router;
 
-$session = new Sessions();
-$session->start();
 
-$issetUser = $session->get('user_id');
-
-print_r($_SESSION);
-
-if ($issetUser) {
-    echo "Управление новостями<br /> ";
-    echo "<a href='#'>Создать новость</a>";
-} else {
-    echo "<a href='loginForm.php'>Login</a> | ";
-    echo "<a href='registerForm.php'>Register</a>";
-}
-
+Router::route('/', [indexControllers::class, 'index']);
+Router::route('/login', [AuthController::class, 'loginForm']);
+Router::route('/do-login', [AuthController::class, 'login']);
+Router::route('/register', [AuthController::class, 'registerForm']);
+Router::route('/do-register', [AuthController::class, 'register']);;
+Router::execute();
 

@@ -2,10 +2,12 @@
     "name": "kirill/reg_mvc",
     "autoload": {
         "psr-4": {
-            "APP\\": "app"
+            "APP\\": "app",
+            "APP\\controllers\\": "app/controllers"
         }
     },
     "require": {
-        "ext-pdo": "*"
+        "ext-pdo": "*",
+        "eftec/bladeonehtml": "^2.4"
     }
 }
