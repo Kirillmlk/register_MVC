@@ -1,6 +1,9 @@
 <?php
 
+
+require_once 'vendor/autoload.php';
 use APP\Database;
+use APP\Sessions;
 
 class DoLogin
 {
@@ -30,8 +33,9 @@ class DoLogin
 
                 if ($user && count($user)) {
                     if ($user['password'] === $password) {
-                        session_start();
-                        $_SESSION['user_id'] = $user['id'];
+                        $session = new Sessions();
+                        $session->start();
+                        $session->set('user_id', $user['id']);
                     } else {
                         return false;
                     }
@@ -51,9 +55,9 @@ class DoLogin
     }
 }
 
-$register = new DoLogin();
-if ($register->register($_POST)) {
-    echo "User added!";
+$login = new DoLogin();
+if ($login->login($_POST)) {
+    echo "User login!";
 } else {
-    echo "User added error!";
+    echo "User login error!";
 }
